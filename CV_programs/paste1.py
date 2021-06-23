@@ -5,9 +5,9 @@ def paste(file_name,Sheet,frequency,source,delimiter_1,Accumulation,Capacity,p):
         import pandas as pd
         if delimiter_1==1:
             format.txt(source)
-        if delimiter_1==2:
-            format.csv(source)
         if delimiter_1==3:
+            format.csv(source)
+        if delimiter_1==2:
             format.vba(source)
 
         excel_path_1="test.xlsx"
