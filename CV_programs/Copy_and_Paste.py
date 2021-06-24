@@ -1,7 +1,7 @@
 import openpyxl
 import os
+from CV_programs import paste1,graph,graph1
 def copy(file_name,Sheet,area,ands):
-
 
 
     Accumulation=1
@@ -38,18 +38,23 @@ def copy(file_name,Sheet,area,ands):
         Vol=input()
         if Vol.isdecimal():
             break
-        Voltage=int(Vol)
+    Voltage=int(Vol)
 
-    while i<3:
+
+
+    while i<2:
         print("frequency [If you want to go next sheet,write \"exit\" and press Enter]")
         frequency=input()
+        if(p>3):
+            frequency="exit"
+
 
         if frequency=="exit":
             if p==0:
                 break
             else:
                 os.remove('test.xlsx')
-                os.remove('data.xlsx')
+
                 outwb = openpyxl.load_workbook(filename=file_name)
                 # Select the Sheet（active is the sheet cyrrently open）
                 outws=outwb[Sheet]
@@ -59,7 +64,7 @@ def copy(file_name,Sheet,area,ands):
                 outwb.save(file_name)
                 break
         else:
-            from CV_programs import paste1
+
             txt="Drag and Drop "+str(frequency)+"'s file here"
             print(txt)
             source=input()
@@ -71,7 +76,16 @@ def copy(file_name,Sheet,area,ands):
             ABCD=dataws.cell(row = 1, column = p+1 ).value
             Accumulation=Accumulation+int(ABCD)+3
             p+=1
-            dataws.cell(row = 3, column = i+1, value = Accumulation )
+
+            dataws.cell(row = 3, column = p+1, value = Accumulation )
+            dataws.cell(row = 4, column = p, value = frequency )
             datawb.save('data.xlsx')
 
-        #graph.graph()
+    dataws.cell(row = 5, column = 1 ,value = Voltage)
+    V=dataws.cell(row = 5, column = 1 ).value
+
+
+    graph.add_to_chart(Sheet,file_name,p,Voltage)
+    graph1.add_to_chart(Sheet,file_name,p,Voltage,Capacity)
+
+    os.remove('data.xlsx')
