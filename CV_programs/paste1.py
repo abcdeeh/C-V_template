@@ -5,12 +5,16 @@ def paste(file_name,Sheet,frequency,source,delimiter_1,Accumulation,Capacity,p):
         import pandas as pd
         if delimiter_1==1:
             format.txt(source)
+            excel_path_1="test.xlsx"
         if delimiter_1==3:
             format.csv(source)
+            excel_path_1="test.xlsx"
         if delimiter_1==2:
             format.vba(source)
+            excel_path_1="test.xlsx"
+        if delimiter_1==4:
+            excel_path_1=source
 
-        excel_path_1="test.xlsx"
         #　コピーしたいファイル
         inwb = openpyxl.load_workbook(filename=excel_path_1)
         #　ペーストしたいファイル

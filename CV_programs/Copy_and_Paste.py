@@ -17,13 +17,13 @@ def copy(file_name,Sheet,area,ands):
 
     i = 0
     while i < 3:
-        print("source file\'s delimiter[space:1 tab;2 comma;3]")
+        print("source file\'s delimiter[space:1 tab;2 comma;3 excel;4]")
         de=input()
 
         if de.isdecimal():
 
             delimiter=int(de)
-            if delimiter==1 or delimiter==2 or delimiter==3:
+            if delimiter==1 or delimiter==2 or delimiter==3 or delimiter==4:
                 break
 
     while i < 3:
@@ -53,7 +53,8 @@ def copy(file_name,Sheet,area,ands):
             if p==0:
                 break
             else:
-                os.remove('test.xlsx')
+                if delimiter==1 or delimiter==2 or delimiter==3:
+                    os.remove('test.xlsx')
 
                 outwb = openpyxl.load_workbook(filename=file_name)
                 # Select the Sheet（active is the sheet cyrrently open）
