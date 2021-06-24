@@ -1,6 +1,6 @@
 def txt(source):
     import pandas as pd
-    from CV_programs import 
+    from CV_programs import txt
     read_text_file = pd.read_csv(source)
     read_text_file.to_excel (r"test.xlsx", index=None)
     txt.txt()
