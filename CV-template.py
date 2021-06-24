@@ -1,4 +1,5 @@
 from CV_programs import Excel_file_creator,Copy_and_Paste,sheet,paste1
+import openpyxl
 #Surface area of ​​metal[cm^2]
 area="5"
 print("Output file`s name")
@@ -20,6 +21,6 @@ while i < 3:
         sheet.sheet(file_name,Sheet)
         Copy_and_Paste.copy(file_name,Sheet,area,ands)
     if k=="n":
-        workbook = load_workbook(filename=file_name)
+        workbook = openpyxl.load_workbook(filename=file_name)
         workbook.close()
         break

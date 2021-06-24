@@ -15,7 +15,7 @@ def add_to_chart(Sheet,file_name,p,Voltage):
 
     cp = CharacterProperties(latin=myfont, sz=1400)
     chart.title = "C-V"
-    chart.x_axis.title = 'Gate Voltage'
+    chart.x_axis.title = 'Gate Voltage[V]'
 
     chart.y_axis.title = 'Capacitance[µF/cm^2]'
 
