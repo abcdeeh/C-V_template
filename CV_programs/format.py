@@ -1,7 +1,9 @@
 def txt(source):
     import pandas as pd
-    read_text_file = pd.read_csv(source,delimiter='	')
+    from CV_programs import 
+    read_text_file = pd.read_csv(source)
     read_text_file.to_excel (r"test.xlsx", index=None)
+    txt.txt()
 def csv(source):
     import pandas as pd
     read_text_file = pd.read_csv(source,delimiter=',')
